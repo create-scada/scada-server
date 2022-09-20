@@ -1,0 +1,97 @@
+{
+    "LAB_1": [
+        {
+            "name": "STEP_1",
+            "num_samples": 25,
+            "jitter": 0.01,
+            "mins_between": 5,
+            "datetime": "2020-05-01 09:00:00",
+            "devices": [
+                {
+                    "rtu_address": "rtu1",
+                    "device_address": "inverter1",
+                    "schema": "basic-inverter",
+                    "point_data": {
+                        "power": 800,
+                        "fan": 5000,
+                        "status": "charging"
+                    }
+                },
+                {
+                    "rtu_address": "rtu2",
+                    "device_address": "weather1",
+                    "schema": "weather-station",
+                    "point_data": {
+                        "irradiance": 1062,
+                        "temperature": 82,
+                        "humidity": 50,
+                        "wind_speed": 8,
+                        "wind_direction": "NE"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "STEP_2",
+            "num_samples": 10,
+            "jitter": 0.01,
+            "mins_between": 5,
+            "datetime": "2020-05-01 11:05:00",
+            "devices": [
+                {
+                    "rtu_address": "rtu1",
+                    "device_address": "inverter1",
+                    "schema": "basic-inverter",
+                    "point_data": {
+                        "power": 100,
+                        "fan": 5000,
+                        "status": "charging"
+                    }
+                },
+                {
+                    "rtu_address": "rtu2",
+                    "device_address": "weather1",
+                    "schema": "weather-station",
+                    "point_data": {
+                        "irradiance": 319,
+                        "temperature": 78,
+                        "humidity": 58,
+                        "wind_speed": 11,
+                        "wind_direction": "N"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "STEP_3",
+            "num_samples": 10,
+            "jitter": 0.01,
+            "mins_between": 5,
+            "datetime": "2020-05-01 11:55:00",
+            "devices": [
+                {
+                    "rtu_address": "rtu1",
+                    "device_address": "inverter1",
+                    "schema": "basic-inverter",
+                    "point_data": {
+                        "power": 900,
+                        "fan": 5000,
+                        "status": "charging"
+                    }
+                },
+                {
+                    "rtu_address": "rtu2",
+                    "device_address": "weather1",
+                    "schema": "weather-station",
+                    "point_data": {
+                        "irradiance": 1094,
+                        "temperature": 84,
+                        "humidity": 49,
+                        "wind_speed": 5,
+                        "wind_direction": "NE"
+                    }
+                }
+            ]
+        }
+    ]
+}

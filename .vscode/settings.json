@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "/home/myuser/.local/share/virtualenvs/Lumen-Server-BHCA1glJ/bin/python",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.formatting.provider": "yapf"
+}

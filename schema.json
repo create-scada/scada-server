@@ -1,0 +1,153 @@
+{
+  "12v-battery": {
+    "voltage": {
+      "data_type": "number",
+      "units": "V"
+    },
+    "current": {
+      "data_type": "number",
+      "units": "A"
+    },
+    "status": {
+      "data_type": "discrete",
+      "values": [
+        "charging",
+        "charged",
+        "discharging"
+      ]
+    }
+  },
+  "basic-inverter": {
+    "power": {
+      "data_type": "number",
+      "units": "W"
+    },
+    "fan": {
+      "data_type": "number",
+      "units": "rpm"
+    },
+    "status": {
+      "data_type": "discrete",
+      "values": [
+        "charging",
+        "charged",
+        "discharging"
+      ]
+    }
+  },
+  "enphase": {
+    "pv_power": {
+      "data_type": "number",
+      "units": "kW"
+    }
+  },
+  "solar-edge": {
+    "pv_power": {
+      "data_type": "number",
+      "units": "kW"
+    }
+  },
+  "also-energy": {
+    "pv_power": {
+      "data_type": "number",
+      "units": "kW"
+    },
+    "temp": {
+      "data_type": "number",
+      "units": "F"
+    },
+    "skies": {
+      "data_type": "discrete",
+      "values": [
+        "Unknown", 
+        "Clear", 
+        "PartCloud", 
+        "FullCloud", 
+        "LightSnow", 
+        "Snow", 
+        "LightRain", 
+        "Rain", 
+        "HeavyRain"
+      ]
+    }
+  },
+  "ve-smartsolar": {
+    "pv_voltage": {
+      "data_type": "number",
+      "units": "V"
+    },
+    "pv_current": {
+      "data_type": "number",
+      "units": "A"
+    },
+    "pv_power": {
+      "data_type": "number",
+      "units": "watts"
+    },
+    "ld_voltage": {
+      "data_type": "number",
+      "units": "V"
+    },
+    "ld_current": {
+      "data_type": "number",
+      "units": "A"
+    },
+    "ld_power": {
+      "data_type": "number",
+      "units": "watts"
+    },
+    "bt_voltage": {
+      "data_type": "number",
+      "units": "V"
+    },
+    "bt_current": {
+      "data_type": "number",
+      "units": "A"
+    },
+    "bt_power": {
+      "data_type": "number",
+      "units": "watts"
+    }
+  },
+  "solar-panel": {
+    "voltage": {
+      "data_type": "number",
+      "units": "V"
+    },
+    "current": {
+      "data_type": "number",
+      "units": "A"
+    }
+  },
+  "weather-station": {
+    "irradiance": {
+      "data_type": "number",
+      "units": "W/m^2"
+    },
+    "temperature": {
+      "data_type": "number",
+      "units": "F"
+    },
+    "humidity": {
+      "data_type": "number",
+      "units": "%"
+    },
+    "wind_speed": {
+      "data_type": "number",
+      "units": "mph"
+    },
+    "wind_direction": {
+      "data_type": "discrete",
+      "values": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ]
+    }
+  }
+}

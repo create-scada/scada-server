@@ -15,12 +15,20 @@ import matplotlib.pyplot as plt
 import uuid
 import sys
 import os
+import argparse
 
 app = Flask(__name__)
 CORS(app)
 
-port = sys.argv[1]
-mode = sys.argv[2]
+parser=argparse.ArgumentParser()
+
+parser.add_argument('--port', help='port', required=True)
+parser.add_argument('--mode', help='mode', choices=('production', 'student'), required=True)
+
+args=parser.parse_args()
+
+port = args.port
+mode = args.mode
 
 DbConnections = {}
 Config = {}

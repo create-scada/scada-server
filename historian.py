@@ -10,7 +10,6 @@ historian = Blueprint('historian', __name__, url_prefix='/historian')
 
 
 @historian.route('/rtu-address/<rtu_address>/device-address/<device_address>/point/<point>/plot', methods=['GET'], strict_slashes=False)
-
 def get_historical_plot(rtu_address, device_address, point):
     from app import _get_historical_data_query
     query = _get_historical_data_query(rtu_address, device_address)

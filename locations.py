@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 import json
 from model import Location, Device, Alarm, DisplayPoint
 from schema import LocationSchema, DeviceSchema, AlarmSchema, DisplayPointSchema
+from utils import trigger_alarms_for_all_devices
 
 locations = Blueprint('locations', __name__, url_prefix='/locations')
 
@@ -145,7 +146,6 @@ def create_alarm(location_id, device_id):
         device=device
     )
     alarm.save()
-    from app import _trigger_alarms_for_all_devices
-    _trigger_alarms_for_all_devices()
+    trigger_alarms_for_all_devices()
     result = {'id': alarm.id}
     return jsonify(result)

@@ -1,18 +1,17 @@
-from flask import Blueprint, jsonify, send_file
+from flask import Blueprint, jsonify, send_file, request
 import dateutil.parser
 import env
+from utils import get_historical_data_query
 import matplotlib.pyplot as plt
 import tempfile
 
 
 historian = Blueprint('historian', __name__, url_prefix='/historian')
 
-
-
 @historian.route('/rtu-address/<rtu_address>/device-address/<device_address>/point/<point>/plot', methods=['GET'], strict_slashes=False)
 def get_historical_plot(rtu_address, device_address, point):
-    from app import _get_historical_data_query
-    query = _get_historical_data_query(rtu_address, device_address)
+
+    query = get_historical_data_query(rtu_address, device_address, request)
     x = []
     y = []
 
@@ -35,8 +34,8 @@ def get_historical_plot(rtu_address, device_address, point):
 
 @historian.route('/rtu-address/<rtu_address>/device-address/<device_address>', methods=['GET'], strict_slashes=False)
 def get_historical_data(rtu_address, device_address):
-    from app import _get_historical_data_query
-    query = _get_historical_data_query(rtu_address, device_address)
+
+    query = get_historical_data_query(rtu_address, device_address, request)
     result = []
     for record in env.config['historical_database'].find(query):
         del record['_id']

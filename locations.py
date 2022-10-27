@@ -4,7 +4,7 @@ from model import Location, Device, Alarm, DisplayPoint
 from schema import LocationSchema, DeviceSchema, AlarmSchema, DisplayPointSchema
 from utils import trigger_alarms_for_all_devices
 
-locations = Blueprint('locations', __name__, url_prefix='/locations')
+locations = Blueprint('locations', __name__, url_prefix='/api/locations')
 
 
 @locations.route('/<location_id>', methods=['GET'], strict_slashes=False)

@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import tempfile
 
 
-historian = Blueprint('historian', __name__, url_prefix='/historian')
+historian = Blueprint('historian', __name__, url_prefix='/api/historian')
 
 @historian.route('/rtu-address/<rtu_address>/device-address/<device_address>/point/<point>/plot', methods=['GET'], strict_slashes=False)
 def get_historical_plot(rtu_address, device_address, point):

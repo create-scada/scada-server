@@ -10,7 +10,8 @@ import json
 import tempfile
 import csv
 from utils import create_sensor_reading, get_historical_data_query
-api = Blueprint('api', __name__)
+
+api = Blueprint('api', __name__, url_prefix='/api')
 
 @api.route('/')
 def index():

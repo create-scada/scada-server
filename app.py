@@ -1,22 +1,10 @@
-import threading
 from flask import Flask, request, jsonify, send_file
 import peewee as pw
-from playhouse.shortcuts import ThreadSafeDatabaseMetadata
-from marshmallow import Schema, fields
-import json
-import datetime
-import dateutil.parser
 from pymongo import MongoClient
-import csv
-import tempfile
-import random
-import matplotlib.pyplot as plt
-import uuid
 import sys
 import os
 import env
 import connections
-from utils import create_sensor_reading, get_historical_data_query
 
 port = sys.argv[1]
 mode = sys.argv[2]
@@ -31,8 +19,7 @@ if mode == 'production':
 
 from locations import locations
 from historian import historian
-from schema import LocationSchema, DeviceSchema, AlarmSchema, DisplayPointSchema
-from model import Location, Device, Alarm, DisplayPoint, Tables
+from model import Tables
 from api import api
 
 app = Flask(__name__)

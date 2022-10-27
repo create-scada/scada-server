@@ -17,15 +17,15 @@ if mode == 'production':
     env.config['historical_database'] = MongoClient()[
         'lumen-production']['sensors']
 
-from locations import locations
-from historian import historian
+from api.locations import locations
+from api.historian import historian
+from api.misc import misc
 from model import Tables
-from api import api
 
 app = Flask(__name__)
 app.register_blueprint(locations)
 app.register_blueprint(historian)
-app.register_blueprint(api)
+app.register_blueprint(misc)
 
 
 @app.before_request

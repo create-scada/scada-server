@@ -11,14 +11,14 @@ import tempfile
 import csv
 from utils import create_sensor_reading, get_historical_data_query
 
-api = Blueprint('api', __name__, url_prefix='/api')
+misc = Blueprint('misc', __name__, url_prefix='/api')
 
-@api.route('/')
+@misc.route('/')
 def index():
     return jsonify({})
 
 
-@api.route('/connection', methods=['GET'], strict_slashes=False)
+@misc.route('/connection', methods=['GET'], strict_slashes=False)
 def create_connection():
     myid = str(uuid.uuid1())
     database = pw.SqliteDatabase(f'tmp/{myid}.db')
@@ -29,7 +29,7 @@ def create_connection():
                            'historical_database': historical_database}
     return jsonify({'connId': myid})
 
-@api.route('/sensor-readings', methods=['POST'], strict_slashes=False)
+@misc.route('/sensor-readings', methods=['POST'], strict_slashes=False)
 def create_lab_sensor_reading():
     data = request.get_json()
     data['date'] = datetime.datetime.now()
@@ -37,18 +37,18 @@ def create_lab_sensor_reading():
 
     return '', 201
 
-@api.route('/schema', methods=['GET'], strict_slashes=False)
+@misc.route('/schema', methods=['GET'], strict_slashes=False)
 def get_schema():
     with open('schema.json') as f:
         return f.read()
 
-@api.route('/simulator-labs', methods=['GET'], strict_slashes=False)
+@misc.route('/simulator-labs', methods=['GET'], strict_slashes=False)
 def get_simulator_labs():
     with open('simulator.json') as f:
         data = json.load(f)
         return jsonify(data)
 
-@api.route('/simulator-labs', methods=['POST'], strict_slashes=False)
+@misc.route('/simulator-labs', methods=['POST'], strict_slashes=False)
 def run_simulator_step():
     data = request.get_json()
     filename = f"{data['lab']}/{data['step']}.json"
@@ -59,7 +59,7 @@ def run_simulator_step():
 
         return '', 201
 
-@api.route('/historian-export/rtu-address/<rtu_address>/device-address/<device_address>', methods=['GET'], strict_slashes=False)
+@misc.route('/historian-export/rtu-address/<rtu_address>/device-address/<device_address>', methods=['GET'], strict_slashes=False)
 def get_historical_data_send_csv(rtu_address, device_address):
 
     query = get_historical_data_query(rtu_address, device_address, request)

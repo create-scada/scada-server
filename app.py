@@ -23,6 +23,10 @@ from model import Tables
 
 def create_app():
     app = Flask(__name__)
+    app.register_blueprint(locations)
+    app.register_blueprint(historian)
+    app.register_blueprint(misc)
+    
     if mode == 'production':
         env.config['database'] = pw.SqliteDatabase('lumen-production.db')
         env.config['historical_database'] = MongoClient()[
@@ -49,9 +53,7 @@ def create_app():
     return app
 
 app = create_app()
-app.register_blueprint(locations)
-app.register_blueprint(historian)
-app.register_blueprint(misc)
+
 
 if __name__ == '__main__':
     try:

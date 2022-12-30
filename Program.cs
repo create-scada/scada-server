@@ -12,7 +12,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite("Data Source=LocalDatabase.db"));
-// set to your local postgresql info 
+// set to your local postgresql info  
 var postgresql_db = Environment.GetEnvironmentVariable("POSTGRES_DB") ?? string.Empty;
 var postgresql_host = Environment.GetEnvironmentVariable("POSTGRES_HOST") ?? string.Empty;
 var postgresql_user = Environment.GetEnvironmentVariable("POSTGRES_USER") ?? string.Empty;

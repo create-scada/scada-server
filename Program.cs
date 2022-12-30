@@ -18,7 +18,6 @@ var postgresql_host = Environment.GetEnvironmentVariable("POSTGRES_HOST") ?? str
 var postgresql_user = Environment.GetEnvironmentVariable("POSTGRES_USER") ?? string.Empty;
 var postgresql_password = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD") ?? string.Empty;
 var connection_string = $"Host={postgresql_host};Database={postgresql_db};Username={postgresql_user};Password={postgresql_password}";
-Console.WriteLine(connection_string);
 
 builder.Services.AddDbContext<AppDbContext>(x => x.UseNpgsql(connection_string));
 

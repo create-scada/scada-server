@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace Scada.Dto;
 
@@ -11,5 +12,5 @@ public class ReadingGetDto
     public string DeviceAddress { get; set; }
     public DateTime Date { get; set; }
     public string Schema { get; set; }
-    public string PointData { get; set; }
+    public JObject PointData { get; set; }
 }

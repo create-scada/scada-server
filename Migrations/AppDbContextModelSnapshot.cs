@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Newtonsoft.Json.Linq;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Scada;
 
@@ -39,7 +40,7 @@ namespace Scada.Migrations
                     b.Property<int>("LocationId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("PointData")
+                    b.Property<JObject>("PointData")
                         .HasColumnType("jsonb");
 
                     b.Property<string>("RtuAddress")
@@ -115,7 +116,7 @@ namespace Scada.Migrations
                     b.Property<string>("DeviceAddress")
                         .HasColumnType("text");
 
-                    b.Property<string>("PointData")
+                    b.Property<JObject>("PointData")
                         .HasColumnType("jsonb");
 
                     b.Property<string>("RtuAddress")

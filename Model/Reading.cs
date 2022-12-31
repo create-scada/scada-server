@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json.Linq;
 
 namespace Scada.Models;
 
@@ -10,5 +11,5 @@ public class Reading
     public DateTime Date { get; set; }
     public string Schema { get; set; }
     [Column(TypeName = "jsonb")]
-    public string PointData { get; set; }
+    public JObject PointData { get; set; }
 }

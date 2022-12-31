@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Text;
@@ -19,10 +19,11 @@ namespace Scada.Controllers
 
         // GET: api/Schema
         [HttpGet]
-        public ActionResult<string> GetSchema()
+        public ActionResult<JObject> GetSchema()
         {
             string schema = System.IO.File.ReadAllText("schema.json");
-            return Ok(schema);
+            var result = JObject.Parse(schema);
+            return Ok(result);
         }
     }
 }

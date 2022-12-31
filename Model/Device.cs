@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Newtonsoft.Json.Linq;
+
 
 namespace Scada.Models;
 
@@ -9,7 +11,7 @@ public class Device
     public string DeviceAddress { get; set; }
     public string Schema { get; set; }
     [Column(TypeName = "jsonb")]
-    public string PointData { get; set; }
+    public JObject PointData { get; set; }
     public double X { get; set; }
     public double Y { get; set; }
     public string ImagePath { get; set; }

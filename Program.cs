@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using Scada;
 using System;
+using Npgsql;
+
+NpgsqlConnection.GlobalTypeMapper.UseJsonNet();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +12,7 @@ builder.Services.AddCors();
 
 // Add services to the container.
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite("Data Source=LocalDatabase.db"));
 // set to your local postgresql info  
@@ -30,6 +33,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.EnsureDeleted();
     dbContext.Database.EnsureCreated();
 }
 

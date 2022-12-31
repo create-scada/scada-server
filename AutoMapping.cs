@@ -4,12 +4,14 @@ using System.Text;
 using AutoMapper;
 using Scada.Dto;
 using Scada.Models;
+using Newtonsoft.Json.Linq;
 
 public class AutoMapping : Profile
 {
     public AutoMapping()
     {
-        //CreateMap<string, byte[]>().ConstructUsing(s => Encoding.UTF8.GetBytes(s));
+        //CreateMap<JObject, string>().ConstructUsing(jObject => jObject.ToString());
+        //CreateMap<string, JObject>().ConstructUsing(s => JObject.Parse(s));
         CreateMap<Location, LocationGetDto>();
         CreateMap<LocationPostDto, Location>();
         CreateMap<Device, DeviceGetDto>();

@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Newtonsoft.Json.Linq;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Scada.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,7 +35,7 @@ namespace Scada.Migrations
                     DeviceAddress = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Schema = table.Column<string>(type: "text", nullable: true),
-                    PointData = table.Column<string>(type: "jsonb", nullable: true)
+                    PointData = table.Column<JObject>(type: "jsonb", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -50,7 +51,7 @@ namespace Scada.Migrations
                     RtuAddress = table.Column<string>(type: "text", nullable: true),
                     DeviceAddress = table.Column<string>(type: "text", nullable: true),
                     Schema = table.Column<string>(type: "text", nullable: true),
-                    PointData = table.Column<string>(type: "jsonb", nullable: true),
+                    PointData = table.Column<JObject>(type: "jsonb", nullable: true),
                     X = table.Column<double>(type: "double precision", nullable: false),
                     Y = table.Column<double>(type: "double precision", nullable: false),
                     ImagePath = table.Column<string>(type: "text", nullable: true),

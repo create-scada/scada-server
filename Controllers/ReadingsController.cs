@@ -60,6 +60,7 @@ namespace Scada.Controllers
         public ActionResult<ReadingPostDto> PostReading(ReadingPostDto readingPostDto)
         {
             var reading = _mapper.Map<Reading>(readingPostDto);
+            reading.Date = DateTime.UtcNow;
             _context.Readings.Add(reading);
             _context.SaveChanges();
 

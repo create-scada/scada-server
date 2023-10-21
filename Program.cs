@@ -14,15 +14,15 @@ builder.Services.AddCors();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite("Data Source=LocalDatabase.db"));
+builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite("Data Source=LocalDatabase.db"));
 // set to your local postgresql info  
-var postgresql_db = Environment.GetEnvironmentVariable("POSTGRES_DB") ?? string.Empty;
-var postgresql_host = Environment.GetEnvironmentVariable("POSTGRES_HOST") ?? string.Empty;
-var postgresql_user = Environment.GetEnvironmentVariable("POSTGRES_USER") ?? string.Empty;
-var postgresql_password = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD") ?? string.Empty;
-var connection_string = $"Host={postgresql_host};Database={postgresql_db};Username={postgresql_user};Password={postgresql_password}";
+//var postgresql_db = Environment.GetEnvironmentVariable("POSTGRES_DB") ?? string.Empty;
+//var postgresql_host = Environment.GetEnvironmentVariable("POSTGRES_HOST") ?? string.Empty;
+//var postgresql_user = Environment.GetEnvironmentVariable("POSTGRES_USER") ?? string.Empty;
+//var postgresql_password = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD") ?? string.Empty;
+//var connection_string = $"Host={postgresql_host};Database={postgresql_db};Username={postgresql_user};Password={postgresql_password}";
 
-builder.Services.AddDbContext<AppDbContext>(x => x.UseNpgsql(connection_string));
+//builder.Services.AddDbContext<AppDbContext>(x => x.UseNpgsql(connection_string));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();

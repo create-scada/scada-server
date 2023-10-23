@@ -6,7 +6,7 @@ The frontend for the SCADA software can be found [here](https://github.com/creat
 
 Sample output can be found [here](https://github.com/create-scada/scada-data). 
 
-# Development server
+# Running the Backend
 
 Navigate to the scada-server directory in CMD and type `dotnet run` to run the backend.
 
